@@ -425,6 +425,13 @@ class BooleanType(BaseType):
             raise ValueError("Expected 'true' or 'false'")
 
 
+class UnknownType(BaseType):
+    @staticmethod
+    def format(value, choices=None):
+        assert not choices
+        return str(value)
+
+
 def all_subclasses(cls):
     res = set()
     queue = {cls}
